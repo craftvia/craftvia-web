@@ -10,7 +10,7 @@ const hardwareProducts = await loadProducts();
 const copy = ja ? {
 	title: 'CraftVia — オープンな組み込み開発基盤',
 	description: 'CraftViaは、試作から製品までをつなぐオープンな組み込み開発基盤です。',
-	nav: ['概要', 'ハードウェア', '開発状況', '設計原則'],
+	nav: ['概要', 'ハードウェア', '開発状況', '設計原則', '運営者'],
 	label: 'オープンハードウェア・プロジェクト',
 	headline: '試作から製品までを、\nひとつの開発経路に。',
 	lead: 'CraftViaは、製品指向のマイコンCoreと、開発・計測を担うStationを組み合わせた、オープンな組み込み開発基盤です。手軽に試し、実測し、同じCoreを実機へ移し、必要になればMCU直載せ設計へ移行できます。',
@@ -46,6 +46,11 @@ const copy = ja ? {
 	],
 	principlesLabel: '設計原則', principlesTitle: '公開し、測り、再現できること。',
 	principles: [['01', 'Develop, measure, move, graduate', 'Stationで開発・計測し、実機へ移し、必要なら直載せ設計へ卒業する。'], ['02', 'Measure from the beginning', '書き込み、ログ、電圧、電流、テストポイントを後付けにしない。'], ['03', 'Document the reasoning', '設計データだけでなく、制約、失敗、測定条件、選定理由も公開する。'], ['04', 'Validate through real projects', '机上の汎用性ではなく、実際の試作と装置開発から得た知見を反映する。']],
+	aboutLabel: 'プロジェクトについて', aboutTitle: 'CraftViaを、公開しながら育てていく。',
+	aboutIntro: 'CraftViaは、仕様、設計データ、検証結果に加えて、設計上の判断や開発過程も公開し、再現可能な組み込み開発基盤として育てていくプロジェクトです。',
+	founderName: '池田 航平', founderNameLatin: 'Kohei Ikeda', founderRole: 'プロジェクト発起人・開発者',
+	founderBio: '回路設計、基板設計、ファームウェア、試作、計測を横断して組み込み機器の開発に取り組んでいます。試作から製品指向のハードウェアまでを、公開された再現可能な開発経路でつなぐことを目的にCraftViaを立ち上げました。',
+	founderNotes: 'AKS Technical Notesで開発記事を読む', founderGithub: 'CraftViaをGitHubで見る',
 	resourcesLabel: 'プロジェクト資料', resourcesTitle: '詳しく見る',
 	resources: [['Documentation', '規格、互換性、設計指針、Getting Started。', 'GitHub', 'https://github.com/craftvia/craftvia-docs'], ['Hardware repositories', '編集可能な設計ソース、Gerber、BOM、CPL、回路図。', 'GitHub', 'https://github.com/craftvia'], ['Contributing', '課題報告、設計レビュー、開発への参加方法。', 'Issues', 'https://github.com/craftvia/craftvia-docs/issues']],
 	canonicalNote: '英語版が内容管理上の正本です。日本語版は正式な翻訳として提供しています。',
@@ -53,7 +58,7 @@ const copy = ja ? {
 } : {
 	title: 'CraftVia — An open embedded development platform',
 	description: 'CraftVia is an open embedded development platform connecting prototypes to products.',
-	nav: ['Overview', 'Hardware', 'Status', 'Principles'],
+	nav: ['Overview', 'Hardware', 'Status', 'Principles', 'About'],
 	label: 'AN OPEN HARDWARE PROJECT',
 	headline: 'One development path,\nfrom prototype to product.',
 	lead: 'CraftVia is an open embedded development platform combining product-oriented MCU Cores with a Station for development and measurement. Build quickly, verify with real measurements, move the same Core into your device, and graduate to an integrated MCU design when the time is right.',
@@ -89,6 +94,11 @@ const copy = ja ? {
 	],
 	principlesLabel: 'Design principles', principlesTitle: 'Open, measurable, reproducible.',
 	principles: [['01', 'Develop, measure, move, graduate', 'Develop and measure on the Station, move into the device, and graduate to direct MCU integration.'], ['02', 'Measure from the beginning', 'Programming, logs, voltage, current, and test points are part of the design—not an afterthought.'], ['03', 'Document the reasoning', 'Publish constraints, failures, measurement conditions, and decisions alongside design files.'], ['04', 'Validate through real projects', 'Improve the platform using evidence from real prototypes, fixtures, and devices.']],
+	aboutLabel: 'About the project', aboutTitle: 'Building CraftVia in the open.',
+	aboutIntro: 'CraftVia publishes specifications, design files, verification results, and the reasoning behind the work. It is being developed as an open and reproducible path for embedded hardware.',
+	founderName: 'Kohei Ikeda', founderNameLatin: '', founderRole: 'Founder & Developer',
+	founderBio: 'An embedded systems and hardware developer working across circuit design, PCB development, firmware, prototyping, and measurement. He started CraftVia to connect early prototypes and product-oriented hardware through an open, reproducible development path.',
+	founderNotes: 'Read development notes at AKS', founderGithub: 'View CraftVia on GitHub',
 	resourcesLabel: 'Project resources', resourcesTitle: 'Explore the project',
 	resources: [['Documentation', 'Standards, compatibility, design guidance, and Getting Started.', 'GitHub', 'https://github.com/craftvia/craftvia-docs'], ['Hardware repositories', 'Editable sources, Gerbers, BOMs, CPLs, and schematics.', 'GitHub', 'https://github.com/craftvia'], ['Contributing', 'Issue reporting, design review, and ways to participate.', 'Issues', 'https://github.com/craftvia/craftvia-docs/issues']],
 	canonicalNote: 'This English version is the canonical source. The Japanese version is maintained as an official translation.',
@@ -129,7 +139,7 @@ const productRows = [
 	})),
 ];
 
-const anchorIds = ['overview', 'hardware', 'status', 'principles'];
+const anchorIds = ['overview', 'hardware', 'status', 'principles', 'about'];
 const otherPath = ja ? '/' : '/ja/';
 const canonicalUrl = ja ? 'https://craftvia.org/ja/' : 'https://craftvia.org/';
 const ogImageUrl = 'https://craftvia.org/ogp.png';
@@ -201,6 +211,20 @@ const ogImageAlt = ja
 
 			<section class="principles section" id="principles"><div class="section-head"><p>{copy.principlesLabel}</p><h2>{copy.principlesTitle}</h2></div><div class="principle-grid">{copy.principles.map((item) => <article><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div></section>
 
+			<section class="about section" id="about">
+				<div class="section-head"><p>{copy.aboutLabel}</p><div><h2>{copy.aboutTitle}</h2><p class="section-intro">{copy.aboutIntro}</p></div></div>
+				<div class="founder-card">
+					<figure class="founder-photo"><img src="/images/kohei-ikeda.webp" alt={ja ? 'CraftVia発起人・開発者の池田航平' : 'Kohei Ikeda, Founder and Developer of CraftVia'} loading="lazy" decoding="async" /></figure>
+					<div class="founder-profile">
+						<p class="label">{copy.founderRole}</p>
+						<h3>{copy.founderName}</h3>
+						{copy.founderNameLatin && <p class="founder-name-latin">{copy.founderNameLatin}</p>}
+						<p class="founder-bio">{copy.founderBio}</p>
+						<div class="founder-links"><a href="https://aks-j.co.jp/technical-notes/" target="_blank" rel="noreferrer">{copy.founderNotes} ↗</a><a href="https://github.com/craftvia" target="_blank" rel="noreferrer">{copy.founderGithub} ↗</a></div>
+					</div>
+				</div>
+			</section>
+
 			<section class="resources section" id="resources"><div class="section-head"><p>{copy.resourcesLabel}</p><h2>{copy.resourcesTitle}</h2></div><div class="resource-list">{copy.resources.map((item) => <a href={item[3]} target="_blank" rel="noreferrer"><div><h3>{item[0]}</h3><p>{item[1]}</p></div><span>{item[2]} ↗</span></a>)}</div><p class="canonical">{copy.canonicalNote}</p></section>
 		</main>
 
@@ -230,9 +254,10 @@ const ogImageAlt = ja
 	.path-steps { border-top:1px solid rgba(255,255,255,.35); } .path-steps div { display:grid; grid-template-columns:40px 1fr 20px; align-items:center; min-height:78px; border-bottom:1px solid rgba(255,255,255,.35); } .path-steps span { color:var(--accent); font-size:11px; } .path-steps strong { font-size:16px; } .path-steps b { color:var(--accent); font-size:16px; font-weight:400; }
 	.product-table { border-top:1px solid var(--ink); } .product-table article { display:grid; gap:30px; align-items:center; min-height:130px; padding:22px 0; border-bottom:1px solid var(--line); } .product-table article.with-image { grid-template-columns:minmax(230px,.9fr) 1.05fr .55fr 1.45fr max-content; min-height:230px; } .product-table article.without-image { grid-template-columns:1.1fr .55fr 1.7fr max-content; } .product-image { min-width:0; height:190px; display:flex; align-items:center; justify-content:center; padding:16px; overflow:hidden; background:var(--soft); } .product-image img { display:block; width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 13px 12px rgba(23,32,25,.14)); transition:transform .25s ease; } .product-image:hover img { transform:scale(1.025); } .product-table h3 { margin:5px 0 0; font-size:24px; } .product-table article>div>span { color:var(--green); font-size:10px; font-weight:700; text-transform:uppercase; } .product-table .product-meta { display:block; margin-top:8px; color:var(--muted); font-size:11px; } .product-table .state { width:max-content; padding:6px 10px; border-radius:999px; background:#f3e5bd; font-size:11px; font-weight:600; } .product-table p { margin:0; color:var(--muted); line-height:1.65; font-size:13px; } .product-table .product-link { color:var(--green); font-size:12px; font-weight:600; white-space:nowrap; }
 	.principles { background:var(--soft); } .principle-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0 6vw; } .principle-grid article { display:grid; grid-template-columns:40px 1fr; padding:27px 0; border-top:1px solid #c8d0c8; } .principle-grid span { color:var(--green); font-size:11px; } .principle-grid h3 { margin:0 0 12px; font-size:18px; } .principle-grid p { grid-column:2; margin:0; color:var(--muted); line-height:1.7; font-size:13px; }
+	.about { background:white; } .founder-card { max-width:1120px; margin-left:auto; display:grid; grid-template-columns:minmax(280px,.8fr) minmax(0,1.3fr); gap:clamp(48px,7vw,105px); align-items:center; } .founder-photo { margin:0; overflow:hidden; background:var(--soft); border:1px solid var(--line); border-radius:3px; } .founder-photo img { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; } .founder-profile .label { margin-bottom:16px; } .founder-profile h3 { margin:0; font-size:clamp(36px,4vw,54px); line-height:1.08; letter-spacing:-.045em; font-weight:600; } .founder-name-latin { margin:10px 0 0; color:var(--green); font-size:12px; font-weight:600; letter-spacing:.06em; } .founder-bio { max-width:650px; margin:30px 0 0; color:var(--muted); font-size:15px; line-height:1.9; } .founder-links { display:flex; flex-wrap:wrap; gap:14px 28px; margin-top:34px; } .founder-links a { color:var(--green); font-size:12px; font-weight:600; }
 	.resource-list { border-top:1px solid var(--ink); } .resource-list a { display:flex; align-items:center; justify-content:space-between; gap:30px; padding:24px 0; border-bottom:1px solid var(--line); } .resource-list h3 { margin:0 0 6px; font-size:20px; } .resource-list p { margin:0; color:var(--muted); font-size:13px; } .resource-list span { color:var(--green); font-size:12px; font-weight:600; white-space:nowrap; } .canonical { margin:34px 0 0; color:var(--muted); font-size:12px; }
 	footer { min-height:200px; display:grid; grid-template-columns:1fr auto auto; gap:70px; align-items:center; padding:50px max(7vw,calc((100% - var(--content-max))/2)); color:rgba(255,255,255,.65); background:#111a14; } footer img { width:130px; filter:brightness(0) invert(1); } footer p { margin:12px 0 0; font-size:12px; } .footer-links { display:flex; gap:25px; font-size:12px; } footer small { font-size:11px; }
 	@media (max-width:1100px) { .product-table article.with-image { grid-template-columns:minmax(210px,.8fr) 1fr auto; } .product-table article.with-image .product-image { grid-column:1; grid-row:1/4; } .product-table article.with-image .product-identity { grid-column:2; grid-row:1; } .product-table article.with-image .state { grid-column:3; grid-row:1; } .product-table article.with-image p { grid-column:2/4; grid-row:2; } .product-table article.with-image .product-link { grid-column:2/4; grid-row:3; } }
-	@media (max-width:900px) { header { grid-template-columns:1fr auto; } nav { display:none; } .hero { grid-template-columns:1fr; } .hero aside { display:grid; grid-template-columns:100px 1fr; gap:30px; } .hero aside img { margin:auto; } .overview,.path { grid-template-columns:1fr; } .section-head { grid-template-columns:1fr; gap:8px; } .hardware-grid { grid-template-columns:1fr; } .hardware-grid article { min-height:auto; border-right:0; border-bottom:1px solid var(--line); } .hardware-grid h3 { margin-top:35px; } .core-family { grid-template-columns:1fr; padding:45px; } .product-table article.without-image { grid-template-columns:1fr auto; } .product-table article.without-image p,.product-table article.without-image .product-link { grid-column:1/-1; } .principle-grid { grid-template-columns:1fr; } }
-	@media (max-width:560px) { header { height:64px; padding:0 20px; } .brand img { width:120px; } .github { display:none; } .hero,.section { padding:75px 20px; } .hero { min-height:auto; } h1 { font-size:45px; } .lead { font-size:14px; } .hero aside { display:block; } .hero aside img { margin-bottom:30px; } .section-head { margin-bottom:45px; } .overview { gap:55px; } .comparison { overflow-x:auto; } .comparison-row { min-width:560px; } .comparison-row>div { padding:12px 10px; font-size:11px; } .core-family { margin-top:70px; padding:32px 20px; } .family-diagram { padding:10px 0; } .cores { grid-template-columns:1fr; } .cores div { min-height:68px; } .connectors { display:none; } .station-box { margin-top:12px; } .product-table article { gap:15px; } .product-table article.with-image { grid-template-columns:1fr auto; padding:28px 0; } .product-table article.with-image .product-image { grid-column:1/-1; grid-row:auto; height:210px; margin-bottom:8px; } .product-table article.with-image .product-identity { grid-column:1; grid-row:auto; } .product-table article.with-image .state { grid-column:2; grid-row:auto; } .product-table article.with-image p,.product-table article.with-image .product-link { grid-column:1/-1; grid-row:auto; } .product-table h3 { font-size:20px; } footer { grid-template-columns:1fr; gap:30px; padding:55px 20px; } }
+	@media (max-width:900px) { header { grid-template-columns:1fr auto; } nav { display:none; } .hero { grid-template-columns:1fr; } .hero aside { display:grid; grid-template-columns:100px 1fr; gap:30px; } .hero aside img { margin:auto; } .overview,.path { grid-template-columns:1fr; } .section-head { grid-template-columns:1fr; gap:8px; } .hardware-grid { grid-template-columns:1fr; } .hardware-grid article { min-height:auto; border-right:0; border-bottom:1px solid var(--line); } .hardware-grid h3 { margin-top:35px; } .core-family { grid-template-columns:1fr; padding:45px; } .product-table article.without-image { grid-template-columns:1fr auto; } .product-table article.without-image p,.product-table article.without-image .product-link { grid-column:1/-1; } .principle-grid { grid-template-columns:1fr; } .founder-card { grid-template-columns:minmax(240px,.75fr) minmax(0,1fr); gap:40px; } }
+	@media (max-width:560px) { header { height:64px; padding:0 20px; } .brand img { width:120px; } .github { display:none; } .hero,.section { padding:75px 20px; } .hero { min-height:auto; } h1 { font-size:45px; } .lead { font-size:14px; } .hero aside { display:block; } .hero aside img { margin-bottom:30px; } .section-head { margin-bottom:45px; } .overview { gap:55px; } .comparison { overflow-x:auto; } .comparison-row { min-width:560px; } .comparison-row>div { padding:12px 10px; font-size:11px; } .core-family { margin-top:70px; padding:32px 20px; } .family-diagram { padding:10px 0; } .cores { grid-template-columns:1fr; } .cores div { min-height:68px; } .connectors { display:none; } .station-box { margin-top:12px; } .product-table article { gap:15px; } .product-table article.with-image { grid-template-columns:1fr auto; padding:28px 0; } .product-table article.with-image .product-image { grid-column:1/-1; grid-row:auto; height:210px; margin-bottom:8px; } .product-table article.with-image .product-identity { grid-column:1; grid-row:auto; } .product-table article.with-image .state { grid-column:2; grid-row:auto; } .product-table article.with-image p,.product-table article.with-image .product-link { grid-column:1/-1; grid-row:auto; } .product-table h3 { font-size:20px; } .founder-card { grid-template-columns:1fr; gap:36px; } .founder-photo { max-width:430px; } .founder-profile h3 { font-size:38px; } .founder-bio { font-size:14px; } .founder-links { display:grid; gap:16px; } footer { grid-template-columns:1fr; gap:30px; padding:55px 20px; } }
 </style>
